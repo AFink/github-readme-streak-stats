@@ -2,7 +2,7 @@
 error_reporting(0);
 require_once "stats.php";
 require_once "card.php";
-file_exists("config.php") AND include "config.php";
+file_exists("config.php") and include "config.php";
 
 // set cache to refresh once per day
 $timestamp = gmdate("D, d M Y 23:59:00") . " GMT";
@@ -12,7 +12,12 @@ header("Pragma: no-cache");
 header("Cache-Control: no-cache, must-revalidate");
 
 // get user from url query string
-$user = $_REQUEST["user"];
+
+if ($_REQUEST["user"]) {
+    $user = $_REQUEST["user"];
+} else {
+    $user = getenv("USERNAME");
+}
 
 // get streak stats
 $stats = getContributionStats($user);
