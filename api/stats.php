@@ -97,7 +97,7 @@ function getYearJoined($user): int
 {
     // load the user's profile info
     $response = curl_get_contents("https://api.github.com/users/${user}");
-    echo "<!--" . $response . "-->";
+    //echo "<!--" . $response . "-->";
     $json = json_decode($response);
     // find the year the user was created
     if ($json && isset($json->created_at) && strlen($json->created_at) > 4) {

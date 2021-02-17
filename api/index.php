@@ -1,5 +1,5 @@
 <?php
-
+error_reporting(0);
 require_once "stats.php";
 require_once "card.php";
 file_exists("config.php") AND include "config.php";
